@@ -4,7 +4,7 @@
 
 #include "HumiditySender.h"
 
-std::string HumiditySender::topic = "home/humidity";
+std::string HumiditySender::topic = HUMIDITY_SENDER_TOPIC;
 
 std::string HumiditySender::Handle(std::shared_ptr<SenderCommandBase> command) {
     std::shared_ptr<HumiditySenderCommand> _command = std::static_pointer_cast<HumiditySenderCommand>(command);

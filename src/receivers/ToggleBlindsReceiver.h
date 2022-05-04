@@ -11,6 +11,8 @@
 
 #include "helpers/PrintHelper.h"
 
+#define TOGGLE_BLINDS_RECEIVER_TOPIC "house/toggle_blinds"
+
 class ToggleBlindsReceiver {
 public:
     static std::string topic;

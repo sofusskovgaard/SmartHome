@@ -9,8 +9,7 @@
 
 #include "managers/RTCManager.h"
 
-class SenderCommandBase {
-public:
+struct SenderCommandBase {
     SenderCommandBase();
     virtual ~SenderCommandBase() {}
 

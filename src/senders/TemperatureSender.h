@@ -12,8 +12,7 @@
 
 #define TEMPERATURE_SENDER_TOPIC "home/temperature"
 
-class TemperatureSenderCommand : public SenderCommandBase {
-public:
+struct TemperatureSenderCommand : SenderCommandBase {
     std::string topic() override {
         return TEMPERATURE_SENDER_TOPIC;
     };
