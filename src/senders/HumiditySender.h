@@ -12,7 +12,7 @@
 
 #define HUMIDITY_SENDER_TOPIC "home/humidity"
 
-struct HumiditySenderCommand : SenderCommandBase { 
+struct HumiditySenderCommand : SenderCommandBase {
     std::string topic() override {
         return HUMIDITY_SENDER_TOPIC;
     };

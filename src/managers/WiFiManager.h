@@ -23,11 +23,15 @@ class WiFiManager {
 private:
     static WiFiClient __client;
 
-    static std::shared_ptr<WiFiManagerOptions> __options;
+//    static std::shared_ptr<WiFiManagerOptions> __options;
+    static std::shared_ptr<std::map<std::string, std::string>> __credentials;
     static unsigned long __last_verification;
 
+    static std::shared_ptr<std::pair<std::string, std::string>> __find_best_network();
+
 public:
-    static void configure(const WiFiManagerOptions& options);
+//    static void configure(const WiFiManagerOptions& options);
+    static void configure(const std::map<std::string, std::string>& credentials);
     static void connect();
     static bool connected();
     static void verify_connection();
