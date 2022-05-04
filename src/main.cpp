@@ -47,7 +47,12 @@ void setup() {
     ServoManager::configure();
     DHTManager::configure();
 
-    WiFiManager::configure({"SibirienAP", "Siberia51244" });
+    WiFiManager::configure({
+       {
+               WIFI_SSID,
+               WIFI_PASSWORD
+       }
+    });
     MQTTManager::configure({
         BROKER_HOST,
         BROKER_PORT,
