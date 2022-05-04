@@ -39,6 +39,7 @@ std::shared_ptr<std::pair<std::string, std::string>> WiFiManager::__find_best_ne
                 bestKnownNetworkRSSI = rssi;
             }
         }
+
     }
 
     if (bestKnownNetwork) {
@@ -69,6 +70,7 @@ void WiFiManager::connect() {
     std::shared_ptr<std::pair<std::string, std::string>> bestKnownNetwork;
 
     while (!bestKnownNetwork) {
+        Serial.print("");
         bestKnownNetwork = __find_best_network();
         delay(5000);
     }

@@ -33,6 +33,9 @@ void MQTTManager::message_received(String &topic, String &payload) {
 }
 
 void MQTTManager::connect() {
+
+    if (__mqtt.connected()) return;
+
     __mqtt.begin(__options->hostname.c_str(), 1883, WiFiManager::client());
     __mqtt.onMessage(MQTTManager::message_received);
 

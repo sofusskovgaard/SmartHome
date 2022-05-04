@@ -23,20 +23,8 @@
 #define MQTT_USERNAME "guest"
 #define MQTT_PASSWORD "guest"
 
-bool disconnecting = false;
-
 void setup() {
     Serial.begin(115200);
-
-    pinMode(4, INPUT_PULLUP);
-
-    attachInterrupt(digitalPinToInterrupt(4), [] {
-        if (!disconnecting && WiFiManager::connected()) {
-            disconnecting = true;
-            WiFi.disconnect();
-            disconnecting = false;
-        }
-    }, LOW);
 
     // wait for a serial connection.
     while (!Serial) {}
