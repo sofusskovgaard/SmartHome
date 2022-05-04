@@ -14,6 +14,15 @@
 #include "senders/HumiditySender.h"
 #include "senders/TemperatureSender.h"
 
+#define WIFI_SSID "SibirienAP"
+#define WIFI_PASSWORD "Siberia51244"
+
+#define BROKER_HOST "10.135.16.59"
+#define BROKER_PORT 1883
+#define MQTT_CLIENT_ID "arduino01"
+#define MQTT_USERNAME "guest"
+#define MQTT_PASSWORD "guest"
+
 bool disconnecting = false;
 
 void setup() {
@@ -40,20 +49,19 @@ void setup() {
 
     WiFiManager::configure({"SibirienAP", "Siberia51244" });
     MQTTManager::configure({
-            "10.135.16.59",
-            1883,
-            "arduino01",
-            "guest",
-            "guest",
-            {
-                {ToggleBlindsReceiver::topic, ToggleBlindsReceiver::Handle}
-            },
-            {
-                    {HumiditySender::topic, HumiditySender::Handle},
-                    {TemperatureSender::topic, TemperatureSender::Handle},
-            }
+        BROKER_HOST,
+        BROKER_PORT,
+        MQTT_CLIENT_ID,
+        MQTT_USERNAME,
+        MQTT_PASSWORD,
+        {
+            {ToggleBlindsReceiver::topic, ToggleBlindsReceiver::Handle}
+        },
+        {
+            {HumiditySender::topic, HumiditySender::Handle},
+            {TemperatureSender::topic, TemperatureSender::Handle},
         }
-    );
+    });
 
     WiFiManager::connect();
     MQTTManager::connect();
