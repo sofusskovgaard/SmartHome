@@ -1,5 +1,7 @@
 # Introduction
 
+![](docs/img.jpg)
+
 This is ***in essence*** a very simple project that allows you to trigger a servo remotely and read a DHT11 sensor, send the gathered data over the internet via the MQTT protocol to a RabbitMQ broker and then storing that data in a InfluxDB database.
 
 # Table of Contents
