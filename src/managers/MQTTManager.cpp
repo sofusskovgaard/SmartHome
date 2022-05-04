@@ -79,7 +79,8 @@ void MQTTManager::__handle_senders() {
             if (mqtt_result) {
                 Serial.println(PrintHelper::ts() + "[MQTT] Successfully handled command for topic -> " + command->topic().c_str());
             } else {
-                    Serial.println(PrintHelper::ts() + "[MQTT] Failed to handle command for topic -> " + command->topic().c_str());
+                Serial.println(PrintHelper::ts() + "[MQTT] Failed to handle command for topic -> " + command->topic().c_str());
+                __commands.push(command);
             }
         } else {
             Serial.println(PrintHelper::ts() + "[MQTT] Couldn't find handler for topic -> " + command->topic().c_str());
