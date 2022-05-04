@@ -21,7 +21,7 @@ Receivers are functions that get called when a new message is received from the 
 
 Receivers always need a topic and a handler function specified. The handler function must be a `void` and must accept a `std::string`.
 
-The receiver must be referenced in the `MQTTManager::configure()` options which is run in the setup function in main.cpp.
+The receiver must be referenced in the `MQTTManager::configure()` options which is run in the setup function in [main.cpp](/src/main.cpp#L42).
 
 ```cpp
 // src/receivers/ToggleBlindsReceiver.cpp
@@ -61,7 +61,7 @@ Senders are the opposite of receivers, they publish new messages to the broker f
 
 Senders always need a topic and a handler function specified. The handler function must return a `std::string` and accept a `std::shared_ptr<SenderCommandBase>`.
 
-The sender must be referenced in the `MQTTManager::configure()` options which is run in the setup function in main.cpp.
+The sender must be referenced in the `MQTTManager::configure()` options which is run in the setup function in [main.cpp](/src/main.cpp#L42).
 
 ```cpp
 // src/senders/TemperatureSender.cpp
