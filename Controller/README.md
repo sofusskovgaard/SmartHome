@@ -1,4 +1,4 @@
-# Introduction
+# SmartHome - Controller
 
 ![](docs/img.jpg)
 
@@ -6,7 +6,7 @@ This is ***in essence*** a very simple project that allows you to trigger a serv
 
 # Table of Contents
 
-- [Introduction](#introduction)
+- [SmartHome - Controller](#smarthome---controller)
 - [Table of Contents](#table-of-contents)
 - [Concepts](#concepts)
   - [Receivers](#receivers)

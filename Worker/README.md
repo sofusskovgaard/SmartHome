@@ -1,4 +1,4 @@
-# Worker / API
+# SmartHome - Worker / API
 
 This projcet is both a service worker as well as a web API. The worker part of this application consumes telemetry data via RabbitMQ ingests it into an InfluxDB instance. The web API is used to display telemetry data and send commands to the RabbitMQ broker.
 
