@@ -9,7 +9,7 @@
              x:Class="SmartHomeApp.Views.Main"
              x:DataType="models:MainViewModel"
              BackgroundColor="#f6f6f6"
-             Title="Fox News">
+             Title="Data">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Reload"
                      Order="Primary"
