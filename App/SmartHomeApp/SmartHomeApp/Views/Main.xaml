@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SmartHomeApp"
+             xmlns:models="clr-namespace:SmartHomeApp.ViewModels"
+             xmlns:microcharts="clr-namespace:Microcharts;assembly=Microcharts"
+             xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             xmlns:converters="clr-namespace:SmartHomeApp.Converters;assembly=SmartHomeApp"
+             x:Class="SmartHomeApp.Views.Main"
+             x:DataType="models:MainViewModel"
+             BackgroundColor="#f6f6f6"
+             Title="Fox News">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Reload"
+                     Order="Primary"
+                     Priority="0"
+                     Command="{Binding RefreshDataCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <Grid Margin="8" ColumnSpacing="8" RowSpacing="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="20" />
+            </Grid.RowDefinitions>
+            
+            
+            <ContentView FlexLayout.Grow="1">
+                <Frame HasShadow="False" BackgroundColor="White" CornerRadius="8" Margin="0" Padding="16">
+                    <StackLayout Margin="0" Padding="0">
+                        <Label Text="Latest Temperature" FontSize="Caption" TextColor="DimGray" Margin="0" Padding="0"></Label>
+                        <forms:ChartView Margin="0" Chart="{Binding tLatestChart}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                        <Label Text="{Binding tLatestChartValue}" FontSize="Header" TextColor="DimGray" Margin="0" Padding="0" HorizontalTextAlignment="Center" VerticalOptions="Center"></Label>
+                    </StackLayout>
+                </Frame>
+            </ContentView>
+            
+            <ContentView Grid.Column="1" Grid.Row="0" FlexLayout.Grow="1">
+                <Frame HasShadow="False" BackgroundColor="White" CornerRadius="8" Margin="0" Padding="16">
+                    <StackLayout Margin="0" Padding="0">
+                        <Label Text="Latest Humidity" FontSize="Caption" TextColor="DimGray" Margin="0" Padding="0"></Label>
+                        <forms:ChartView Chart="{Binding hLatestChart}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                        <Label Text="{Binding hLatestChartValue}" FontSize="Header" TextColor="DimGray" Margin="0" Padding="0" HorizontalTextAlignment="Center" VerticalOptions="Center"></Label>
+                    </StackLayout>
+                </Frame>
+            </ContentView>
+            
+            <ContentView Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" FlexLayout.Grow="1" Margin="0" Padding="0">
+                <Frame HasShadow="False" BackgroundColor="White" CornerRadius="8" Margin="0" Padding="18">
+                    <StackLayout Margin="0" Padding="0">
+                        <Label Text="Temperature Last 3 Hours" FontSize="Caption" TextColor="DimGray" Margin="0" Padding="0"></Label>
+                        <Label Text="{Binding tChartMax}" FontSize="Micro" HorizontalTextAlignment="End"></Label>
+                        <forms:ChartView Margin="0" Chart="{Binding tChart}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                        <Label Text="{Binding tChartMin}" FontSize="Micro" HorizontalTextAlignment="End"></Label>
+                    </StackLayout>
+                </Frame>
+            </ContentView>
+            
+            <ContentView Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" FlexLayout.Grow="1">
+                <Frame HasShadow="False" BackgroundColor="White" CornerRadius="8" Margin="0" Padding="16">
+                    <StackLayout Margin="0" Padding="0">
+                        <Label Text="Humidity Last 3 Hours" FontSize="Caption" TextColor="DimGray" Margin="0" Padding="0"></Label>
+                        <Label Text="{Binding hChartMax}" FontSize="Micro" HorizontalTextAlignment="End"></Label>
+                        <forms:ChartView Margin="0" Chart="{Binding hChart}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                        <Label Text="{Binding hChartMin}" FontSize="Micro" HorizontalTextAlignment="End"></Label>
+                    </StackLayout>
+                </Frame>
+            </ContentView>
+            
+            <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" HorizontalOptions="Center" Padding="16" BackgroundColor="White" Text="Toggle Blinds" Command="{Binding ToggleBlindsCommand}"/>
+            
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

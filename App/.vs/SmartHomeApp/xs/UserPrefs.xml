@@ -1,0 +1,21 @@
+﻿<Properties StartupConfiguration="{A8F8DD76-00E4-4A6F-AE75-D1921E2EBAE5}|Default">
+  <MonoDevelop.Ide.ItemProperties.SmartHomeApp.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.79D03C79-817C-47D0-8FE8-D239E9B954BE" />
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="SmartHomeApp" expanded="True">
+            <Node name="SmartHomeApp" expanded="True" />
+            <Node name="SmartHomeApp.iOS" expanded="True" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

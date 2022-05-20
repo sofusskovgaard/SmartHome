@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:SmartHomeApp.Views.Guest;assembly=SmartHomeApp"
+       Title="template"
+       x:Class="SmartHomeApp.GuestShell">
+
+       <!--
+        The overall app visual hierarchy is defined here, along with navigation.
+    
+        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
+    -->
+
+       <Shell.Resources>
+              <Style x:Key="BaseStyle" TargetType="Element">
+                     <Setter Property="Shell.BackgroundColor" Value="Black" />
+                     <Setter Property="Shell.ForegroundColor" Value="Black" />
+                     <Setter Property="Shell.TitleColor" Value="Black" />
+                     <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                     <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                     <Setter Property="Shell.TabBarBackgroundColor" Value="Black" />
+                     <Setter Property="Shell.TabBarForegroundColor" Value="Black"/>
+                     <Setter Property="Shell.TabBarUnselectedColor" Value="Gray"/>
+                     <Setter Property="Shell.TabBarTitleColor" Value="Black"/>
+              </Style>
+              <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+              <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+       </Shell.Resources>
+
+       <TabBar>
+              <ShellContent Title="Login" Route="Login" ContentTemplate="{DataTemplate local:LogIn}" />
+       </TabBar>
+</Shell>

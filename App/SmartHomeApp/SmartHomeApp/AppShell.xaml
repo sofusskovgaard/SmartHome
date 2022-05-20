@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:SmartHomeApp.Views"
+       Title="template"
+       x:Class="SmartHomeApp.AppShell">
+
+       <!--
+        The overall app visual hierarchy is defined here, along with navigation.
+    
+        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
+    -->
+
+       <Shell.Resources>
+              <Style x:Key="BaseStyle" TargetType="Element">
+                     <Setter Property="Shell.BackgroundColor" Value="Black" />
+                     <Setter Property="Shell.ForegroundColor" Value="Black" />
+                     <Setter Property="Shell.TitleColor" Value="Black" />
+                     <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                     <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                     <Setter Property="Shell.TabBarBackgroundColor" Value="Black" />
+                     <Setter Property="Shell.TabBarForegroundColor" Value="Black"/>
+                     <Setter Property="Shell.TabBarUnselectedColor" Value="Gray"/>
+                     <Setter Property="Shell.TabBarTitleColor" Value="Black"/>
+              </Style>
+              <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+              <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+       </Shell.Resources>
+
+       <FlyoutItem Title="Home">
+              <Tab>
+                     <ShellContent Title="Main" Route="Main" ContentTemplate="{DataTemplate local:Main}" />
+              </Tab>
+       </FlyoutItem>
+       
+       <MenuItem Text="Logout"
+                 Command="{Binding LogoutCommand}"
+                 CommandParameter="https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell" />
+
+       <!--
+        If you would like to navigate to this content you can do so by calling
+        await Shell.Current.GoToAsync("//LoginPage");
+    -->
+       <!-- <TabBar> -->
+       <!--        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" /> -->
+       <!-- </TabBar> -->
+       
+</Shell>
