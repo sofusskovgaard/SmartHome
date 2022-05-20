@@ -23,11 +23,13 @@
 #define MQTT_USERNAME "guest"
 #define MQTT_PASSWORD "guest"
 
+#include <chrono>
+
 void setup() {
     Serial.begin(115200);
 
     // wait for a serial connection.
-    while (!Serial) {}
+//    while (!Serial) {}
 
     RTCManager::configure();
     LedHelper::configure();
@@ -80,7 +82,7 @@ void loop() {
 
     unsigned long ms = millis();
 
-    if (ms - last_sent >= 2000) {
+    if (ms - last_sent >= 5000) {
         last_sent = ms;
 
         GatherAndSendTemperature();

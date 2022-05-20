@@ -7,6 +7,7 @@
 
 #include <string>
 #include <memory>
+#include <ArduinoJson.h>
 
 #include "base/SenderCommandBase.h"
 

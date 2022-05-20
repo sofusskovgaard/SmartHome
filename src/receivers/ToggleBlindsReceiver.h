@@ -11,7 +11,7 @@
 
 #include "helpers/PrintHelper.h"
 
-#define TOGGLE_BLINDS_RECEIVER_TOPIC "house/toggle_blinds"
+#define TOGGLE_BLINDS_RECEIVER_TOPIC "home/toggle_blinds"
 
 class ToggleBlindsReceiver {
 public:

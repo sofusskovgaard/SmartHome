@@ -8,5 +8,14 @@ std::string TemperatureSender::topic = TEMPERATURE_SENDER_TOPIC;
 
 std::string TemperatureSender::Handle(std::shared_ptr<SenderCommandBase> command) {
     std::shared_ptr<TemperatureSenderCommand> _command = std::static_pointer_cast<TemperatureSenderCommand>(command);
-    return std::to_string(_command->temperature);
+
+    StaticJsonDocument<200> doc;
+
+    doc["temperature"] = int(_command->temperature);
+    doc["ts"] = _command->collected_at.unixtime();
+
+    std::string json;
+    serializeJson(doc, json);
+
+    return json;
 }
