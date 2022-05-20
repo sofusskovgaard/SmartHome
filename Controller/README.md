@@ -110,7 +110,7 @@ public:
 
 # Goals
 - [x] Reading sensors and sending that data over the internet
-- [ ] Storing the data for later use
+- [x] Storing the data for later use
 - [x] Ability to trigger different events &mdash; *like opening motorized blinds* &mdash; remotely
 
 # Features
