@@ -1,0 +1,64 @@
+version: '3'
+services:
+
+  api:
+    image: sofusskovgaard/elixir-app:latest
+    restart: always
+    ports:
+      - 4001:4001
+    environment:
+      - INFLUXDB_TOKEN=""
+      - INFLUXDB_BUCKET=main
+      - INFLUXDB_ORG=smart-home
+      - INFLUXDB_HOST=influxdb
+      - RABBITMQ_USER=guest
+      - RABBITMQ_PASSWORD=guest
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+    depends_on:
+     - rabbitmq
+     - influxdb
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+  rabbitmq:
+    image: rabbitmq:3.10.5-management-alpine
+    restart: always
+    ports:
+      - 5672:5672
+      - 15672:15672
+
+  influxdb:
+    image: influxdb:2.3.0-alpine
+    restart: always
+    ports:
+      - 8086:8086
+    volumes:
+      - "influxdb:/var/lib/influxdb"
+      - "influxdb2:/var/lib/influxdb2"
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=sofus
+      - DOCKER_INFLUXDB_INIT_PASSWORD=p@ssw0rd
+      - DOCKER_INFLUXDB_INIT_ORG=smart-home
+      - DOCKER_INFLUXDB_INIT_BUCKET=main
+
+  watchtower:
+    image: containrrr/watchtower
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/timezone:/etc/timezone:ro
+    environment:
+      - WATCHTOWER_CLEANUP=true
+      - WATCHTOWER_LABEL_ENABLE=true
+      - WATCHTOWER_INCLUDE_RESTARTING=true
+      - WATCHTOWER_POLL_INTERVAL=120
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+volumes:
+  influxdb:
+    external: true
+  influxdb2:
+    external: true
