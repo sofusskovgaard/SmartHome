@@ -18,7 +18,7 @@ defmodule API.Routes.MainRoute do
   forward "/api/blinds", to: API.Routes.BlindsRoute
 
   get "/" do
-    send_resp(conn, 200, "Hello World!")
+    send_resp(conn, 200, "Hello Bountiful World!")
   end
 
   match _ do
