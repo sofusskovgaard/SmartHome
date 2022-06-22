@@ -2,12 +2,12 @@ version: '3'
 services:
 
   api:
-    image: sofusskovgaard/elixir-app:latest
+    image: ghcr.io/sofusskovgaard/smarthome:worker-latest
     restart: always
     ports:
       - 4001:4001
     environment:
-      - INFLUXDB_TOKEN=""
+      - INFLUXDB_TOKEN=UhsldqbJBm2f4I2GC7KyuukzAzxOE_LPf6mCb7Y2TOfGLNNmfwKqeyzGcBhmKhfd6XqHgjyWdz1tIVuep8gJhQ==
       - INFLUXDB_BUCKET=main
       - INFLUXDB_ORG=smart-home
       - INFLUXDB_HOST=influxdb
@@ -25,8 +25,11 @@ services:
     image: rabbitmq:3.10.5-management-alpine
     restart: always
     ports:
+      - 1883:1883
       - 5672:5672
       - 15672:15672
+    volumes:
+    - ./enabled-plugins:/etc/rabbitmq/enabled_plugins
 
   influxdb:
     image: influxdb:2.3.0-alpine
